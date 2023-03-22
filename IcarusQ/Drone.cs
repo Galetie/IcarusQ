@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IcarusQ
 {
-    internal class ServiceInfo
+    internal class Drone
     {
         // Store info here
         private string clientName;
@@ -16,7 +16,7 @@ namespace IcarusQ
         private int    serviceTag;
 
         // Constructors
-        public ServiceInfo(string newName, string newModel, string newProblem, float newCost, int newTag)
+        public Drone(string newName, string newModel, string newProblem, float newCost, int newTag)
         {
             clientName = newName;
             droneModel = newModel;
