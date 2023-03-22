@@ -31,7 +31,7 @@ namespace IcarusQ
         public string getServiceProblem() { return serviceProblem; }
         public float getServiceCost() { return serviceCost; }
         public int getServiceTag() { return serviceTag; }
-
+         
         // Setters
         public void setClientName(string newName) { clientName = newName; }
         public void setDroneModel(string newModel) { droneModel = newModel; }
