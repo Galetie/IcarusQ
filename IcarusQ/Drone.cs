@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Name: Jarryd Hassall
+// Date: 29/03/2023
+// SID:  30063186
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace IcarusQ
 {
-    internal class Drone
+    internal class Drone : IComparable<Drone>
     {
         // Store info here
         private string clientName;
@@ -22,6 +26,9 @@ namespace IcarusQ
         private string serviceProblem;
         private string serviceTag;
         private double serviceCost;
+
+        public Drone()
+        { }
 
         // Constructors
         public Drone(string newName, string newModel, string newProblem, double newCost, string newTag)
@@ -74,5 +81,9 @@ namespace IcarusQ
         public void setServiceCost(int newCost) { serviceCost = newCost; }
         public void setServiceTag(string newTag) { serviceTag = newTag; }
 
+        public int CompareTo(Drone other)
+        {
+            return getClientName().CompareTo(other.getClientName());
+        }
     }
 }

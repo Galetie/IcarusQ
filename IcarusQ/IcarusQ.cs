@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Name: Jarryd Hassall
+// Date: 29/03/2023
+// SID:  30063186
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -315,7 +319,7 @@ namespace IcarusQ
         {
             // Get the char
             char input = e.KeyChar;
-            
+
             // Check if number or '.'
             if (input == '.')
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IcarusQ));
             this.lvRegular = new System.Windows.Forms.ListView();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -38,6 +39,7 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnAddService = new System.Windows.Forms.Button();
             this.groupServiceType = new System.Windows.Forms.GroupBox();
             this.rbtnExpress = new System.Windows.Forms.RadioButton();
@@ -101,7 +103,7 @@
             this.btnServiceCompleteRegular.Location = new System.Drawing.Point(6, 362);
             this.btnServiceCompleteRegular.Name = "btnServiceCompleteRegular";
             this.btnServiceCompleteRegular.Size = new System.Drawing.Size(132, 23);
-            this.btnServiceCompleteRegular.TabIndex = 2;
+            this.btnServiceCompleteRegular.TabIndex = 10;
             this.btnServiceCompleteRegular.Text = "Service Complete";
             this.btnServiceCompleteRegular.UseVisualStyleBackColor = true;
             this.btnServiceCompleteRegular.Click += new System.EventHandler(this.btnServiceCompleteRegular_Click);
@@ -143,6 +145,7 @@
             this.lvFinished.TabIndex = 6;
             this.lvFinished.UseCompatibleStateImageBehavior = false;
             this.lvFinished.View = System.Windows.Forms.View.Details;
+            this.lvFinished.SelectedIndexChanged += new System.EventHandler(this.LVSelectedIndexChanged);
             this.lvFinished.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFinished_MouseDoubleClick);
             // 
             // tbName
@@ -153,7 +156,7 @@
             this.tbName.MaximumSize = new System.Drawing.Size(500, 4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(223, 20);
-            this.tbName.TabIndex = 9;
+            this.tbName.TabIndex = 0;
             // 
             // label4
             // 
@@ -166,6 +169,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnAddService);
             this.groupBox2.Controls.Add(this.groupServiceType);
             this.groupBox2.Controls.Add(this.label9);
@@ -185,12 +189,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Service Details";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 312);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "$";
+            // 
             // btnAddService
             // 
             this.btnAddService.Location = new System.Drawing.Point(5, 381);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(223, 26);
-            this.btnAddService.TabIndex = 21;
+            this.btnAddService.TabIndex = 6;
             this.btnAddService.Text = "Add Service";
             this.btnAddService.UseVisualStyleBackColor = true;
             this.btnAddService.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AddNewItem);
@@ -204,7 +217,7 @@
             this.groupServiceType.Location = new System.Drawing.Point(6, 335);
             this.groupServiceType.Name = "groupServiceType";
             this.groupServiceType.Size = new System.Drawing.Size(221, 40);
-            this.groupServiceType.TabIndex = 12;
+            this.groupServiceType.TabIndex = 4;
             this.groupServiceType.TabStop = false;
             this.groupServiceType.Text = "Service Type";
             // 
@@ -214,7 +227,7 @@
             this.rbtnExpress.Location = new System.Drawing.Point(122, 15);
             this.rbtnExpress.Name = "rbtnExpress";
             this.rbtnExpress.Size = new System.Drawing.Size(62, 17);
-            this.rbtnExpress.TabIndex = 13;
+            this.rbtnExpress.TabIndex = 1;
             this.rbtnExpress.TabStop = true;
             this.rbtnExpress.Text = "Express";
             this.rbtnExpress.UseVisualStyleBackColor = true;
@@ -225,7 +238,7 @@
             this.rbtnRegular.Location = new System.Drawing.Point(31, 15);
             this.rbtnRegular.Name = "rbtnRegular";
             this.rbtnRegular.Size = new System.Drawing.Size(62, 17);
-            this.rbtnRegular.TabIndex = 12;
+            this.rbtnRegular.TabIndex = 0;
             this.rbtnRegular.TabStop = true;
             this.rbtnRegular.Text = "Regular";
             this.rbtnRegular.UseVisualStyleBackColor = true;
@@ -243,12 +256,13 @@
             // 
             this.tbCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCost.Location = new System.Drawing.Point(5, 309);
+            this.tbCost.Location = new System.Drawing.Point(23, 309);
             this.tbCost.MaximumSize = new System.Drawing.Size(500, 4);
+            this.tbCost.MaxLength = 20;
             this.tbCost.Name = "tbCost";
             this.tbCost.ShortcutsEnabled = false;
-            this.tbCost.Size = new System.Drawing.Size(87, 20);
-            this.tbCost.TabIndex = 19;
+            this.tbCost.Size = new System.Drawing.Size(70, 20);
+            this.tbCost.TabIndex = 3;
             this.tbCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCost_KeyPress);
             // 
             // label8
@@ -283,7 +297,7 @@
             this.nServiceTag.Name = "nServiceTag";
             this.nServiceTag.ReadOnly = true;
             this.nServiceTag.Size = new System.Drawing.Size(130, 20);
-            this.nServiceTag.TabIndex = 17;
+            this.nServiceTag.TabIndex = 0;
             this.nServiceTag.Value = new decimal(new int[] {
             100,
             0,
@@ -308,7 +322,7 @@
             this.tbServiceProblem.Multiline = true;
             this.tbServiceProblem.Name = "tbServiceProblem";
             this.tbServiceProblem.Size = new System.Drawing.Size(223, 177);
-            this.tbServiceProblem.TabIndex = 13;
+            this.tbServiceProblem.TabIndex = 2;
             // 
             // label5
             // 
@@ -327,7 +341,7 @@
             this.tbModel.MaximumSize = new System.Drawing.Size(500, 4);
             this.tbModel.Name = "tbModel";
             this.tbModel.Size = new System.Drawing.Size(223, 20);
-            this.tbModel.TabIndex = 11;
+            this.tbModel.TabIndex = 1;
             // 
             // tcServices
             // 
@@ -341,7 +355,7 @@
             this.tcServices.Name = "tcServices";
             this.tcServices.SelectedIndex = 0;
             this.tcServices.Size = new System.Drawing.Size(457, 414);
-            this.tcServices.TabIndex = 9;
+            this.tcServices.TabIndex = 10;
             // 
             // tabPageRegularService
             // 
@@ -386,6 +400,7 @@
             this.Controls.Add(this.tcServices);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.statusStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(730, 1000);
             this.MinimumSize = new System.Drawing.Size(730, 490);
             this.Name = "IcarusQ";
@@ -434,6 +449,7 @@
         private System.Windows.Forms.TabPage tabPageRegularService;
         private System.Windows.Forms.TabPage tabPageExpressService;
         private System.Windows.Forms.TabPage tabPageCompleted;
+        private System.Windows.Forms.Label label1;
     }
 }
 
